@@ -45,6 +45,9 @@ class Modal {
                     this.close();
                 }
             }.bind(this));
+            window.addEventListener('resize', function () {
+                this.widthElement();
+            }.bind(this));
         }
     }
 
@@ -59,7 +62,7 @@ class Modal {
         this.options.animation ? this.animation = this.options.animation : this.animation = 'fadeIn';
         animation ? this.animation = animation : this.animation;
 
-        this.options.width ? this.width = this.options.width : this.width = 'auto';
+        this.options.width ? this.width = this.options.width : this.width = '600px';
         width ? this.width = width : this.width;
 
         this.disableScroll();
@@ -71,20 +74,18 @@ class Modal {
         this.modalItem.classList.add('show');
         this.modalItem.classList.add(this.animation);
 
+
+        this.widthElement();
         setTimeout(() => {
-            this.widthElement();
             this.options.isOpen(this);
             this.isOpen = true;
             this.modalItem.classList.add('animation-show');
         }, this.speed / 1000);
 
-        setTimeout(() => {
-            this.modal.style.overflowY = 'auto';
-        }, this.speed);
+        this.modal.style.overflowY = 'auto';
     }
 
     close() {
-        this.modal.style.overflowY = 'hidden';
         this.modalItem.classList.remove('animation-show');
         this.modalItem.style.transition = `${this.speed / 1000}s`;
 
@@ -95,24 +96,18 @@ class Modal {
             this.modalItem.classList.remove(this.animation);
             this.modalItem.classList.remove('show');
             this.modal.classList.remove('show');
+            this.modal.style.overflowY = 'hidden';
         }, this.speed);
     }
 
     widthElement() {
-        this.modalItem.style.width = `${this.width}px`;
-        console.log(this.width);
+        this.modalItem.style.width = this.width;
 
-        console.log(document.body.clientWidth);
-        // console.log(this.modalItem.clientWidth);
-
-        if (this.width >= document.body.clientWidth) {
-            this.modalItem.style.width = `auto`;
+        if ((parseInt(this.width) + 100) >= document.body.clientWidth) {
+            this.modalItem.style.width = 'auto';
+        } else {
+            this.modalItem.style.width = this.width;
         }
-
-
-
-        // console.log(this.modalItem.clientWidth + a);
-
     }
 
     disableScroll() {
