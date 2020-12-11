@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="modal.css">
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn" 
+        data-modal-path="first" 
+        data-modal-speed="700" 
+        data-modal-animation="fadeInUp"
+        data-modal-width="1000"
+    >Модальное окно 1</button>
+    <button class="btn" data-modal-path="second" >Модальное окно 2</button>
+
+    <h1>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, inventore placeat. Ratione rerum, fugit
+        ducimus similique culpa iure molestiae possimus eligendi nam sed id autem, ipsum adipisci, vero aut aspernatur
+        nobis. Eligendi culpa amet cumque modi quisquam animi dolores aut? Reprehenderit accusantium fugit nemo ipsum ad
+        harum dolor aspernatur maxime totam. Ea illo aliquam necessitatibus molestias esse numquam distinctio,
+        laudantium, saepe error, facere recusandae quo dolorum perferendis ipsa exercitationem quia iusto ex accusantium
+        doloribus. Repudiandae laborum dolor nostrum cumque minus corporis consequuntur asperiores maiores, architecto
+        voluptates vero officiis veritatis neque aut ea voluptas eum unde. Voluptate ullam est dolor culpa?
+    </h1>
+
+
+    <div class="modal" id="modal">
+
+        <div class="modal__item" data-modal-target="first">
+            <button class="modal__close">Close</button>
+            <h3 class="modal__title">Title 1</h3>
+            <div class="modal__content">
+                <p>
+                    Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Своего лучше
+                    власти пояс имени запятой! На берегу раз пустился взгляд!
+                </p>
+            </div>
+        </div>
+
+        <div class="modal__item" data-modal-target="second">
+            <input type="text">
+            <button class="modal__close">Close</button>
+            <h3 class="modal__title">Title 1</h3>
+            <div class="modal__content">
+                <p>
+                    Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Своего лучше
+                    власти пояс имени запятой! На берегу раз пустился взгляд!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sed, quae, doloremque beatae quo distinctio labore id laudantium alias placeat harum earum pariatur eum. Placeat voluptatibus rerum autem esse maxime, obcaecati quam quidem, magnam voluptate ullam non delectus ratione sed iure, dolore sapiente totam quaerat tempore beatae ducimus nemo ipsa? Et, autem eligendi voluptatum doloremque quibusdam mollitia voluptatibus accusamus architecto nostrum tempora quasi dolores quia sed esse ut vel adipisci aut tenetur ea. Animi cumque ad harum perferendis veniam aspernatur accusamus quod distinctio minima fugiat fugit eum recusandae commodi ullam quisquam dolore cum beatae totam facilis adipisci, vel saepe suscipit. Blanditiis, ab ipsa! Praesentium perferendis quis quas qui similique quasi dolores at, quod veniam aliquid ipsa iusto consequuntur voluptatum pariatur debitis, repudiandae sapiente sequi ipsam facere nam id ea iste blanditiis excepturi! Blanditiis vel accusamus reprehenderit quaerat, ex veritatis libero, fugiat ipsum nemo architecto culpa ducimus error earum eius nihil odit dolores at temporibus tempore! Iure quos optio, assumenda nostrum modi omnis aliquam suscipit totam architecto dignissimos laboriosam praesentium eum quae, sint, adipisci fugiat accusamus nihil aut saepe ab amet minima recusandae ullam? Saepe assumenda fuga cupiditate? Ea quam odio, vel dolor ut dolores officia eaque reprehenderit illum id iusto culpa ex aspernatur error pariatur rerum ducimus, repellat nostrum dolore. Eum voluptas fugit quos est numquam distinctio. Laudantium ex eligendi culpa possimus fugiat officia voluptate reiciendis quam sunt ullam adipisci veritatis, hic quos fuga aperiam dignissimos aliquam non quo nisi id similique nihil. Dolore possimus libero corrupti sequi totam impedit commodi eaque molestias, culpa quia quaerat quas adipisci necessitatibus, minima laboriosam ducimus itaque, voluptatibus et explicabo! Aut odit iusto quidem molestiae vero, fugit illum illo ipsa labore cumque et natus. Minima deserunt possimus maxime molestiae pariatur assumenda quasi nemo nihil, laudantium voluptatibus illo voluptatum in. Unde nihil deserunt dolorum iure.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sed, quae, doloremque beatae quo distinctio labore id laudantium alias placeat harum earum pariatur eum. Placeat voluptatibus rerum autem esse maxime, obcaecati quam quidem, magnam voluptate ullam non delectus ratione sed iure, dolore sapiente totam quaerat tempore beatae ducimus nemo ipsa? Et, autem eligendi voluptatum doloremque quibusdam mollitia voluptatibus accusamus architecto nostrum tempora quasi dolores quia sed esse ut vel adipisci aut tenetur ea. Animi cumque ad harum perferendis veniam aspernatur accusamus quod distinctio minima fugiat fugit eum recusandae commodi ullam quisquam dolore cum beatae totam facilis adipisci, vel saepe suscipit. Blanditiis, ab ipsa! Praesentium perferendis quis quas qui similique quasi dolores at, quod veniam aliquid ipsa iusto consequuntur voluptatum pariatur debitis, repudiandae sapiente sequi ipsam facere nam id ea iste blanditiis excepturi! Blanditiis vel accusamus reprehenderit quaerat, ex veritatis libero, fugiat ipsum nemo architecto culpa ducimus error earum eius nihil odit dolores at temporibus tempore! Iure quos optio, assumenda nostrum modi omnis aliquam suscipit totam architecto dignissimos laboriosam praesentium eum quae, sint, adipisci fugiat accusamus nihil aut saepe ab amet minima recusandae ullam? Saepe assumenda fuga cupiditate? Ea quam odio, vel dolor ut dolores officia eaque reprehenderit illum id iusto culpa ex aspernatur error pariatur rerum ducimus, repellat nostrum dolore. Eum voluptas fugit quos est numquam distinctio. Laudantium ex eligendi culpa possimus fugiat officia voluptate reiciendis quam sunt ullam adipisci veritatis, hic quos fuga aperiam dignissimos aliquam non quo nisi id similique nihil. Dolore possimus libero corrupti sequi totam impedit commodi eaque molestias, culpa quia quaerat quas adipisci necessitatibus, minima laboriosam ducimus itaque, voluptatibus et explicabo! Aut odit iusto quidem molestiae vero, fugit illum illo ipsa labore cumque et natus. Minima deserunt possimus maxime molestiae pariatur assumenda quasi nemo nihil, laudantium voluptatibus illo voluptatum in. Unde nihil deserunt dolorum iure.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="modal.js"></script>
+    <script>
+        new Modal({
+            isOpen: () => {
+                console.log('Open');
+            },
+            isClose: () => {
+                console.log('Close');
+            },
+            speed: 500,
+            // animation: 'fadeInRight',
+            // width: 1000
+        });
+    </script>
+</body>
+
+</html>
