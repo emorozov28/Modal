@@ -1,6 +1,9 @@
 .modal {
     --transition-time: .3s;
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     right: 0;
@@ -11,18 +14,17 @@
     text-align: center;
     cursor: pointer;
     z-index: 999;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-time);
 
-    &::before {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-        height: 100vh;
-    }
+    // &::before {
+    //     content: "";
+    //     display: inline-block;
+    //     vertical-align: middle;
+    //     height: 100vh;
+    // }
 
     &.show {
         opacity: 1;
@@ -39,8 +41,23 @@
     background-color: #fff;
     cursor: default;
     padding: 40px;
+    max-height: 90%;
     transition: var(--transition-time);
     box-sizing: border-box;
+    overflow-y: auto;
+
+    &.position-top {
+        margin-bottom: auto !important;
+    }
+
+    &.position-center {
+        margin: auto !important;
+    }
+
+    &.position-bottom {
+        margin-top: auto !important;
+    }
+
 
     &.show {
         display: inline-block;
@@ -50,6 +67,8 @@
         opacity: 0;
         transition: var(--transition-time);
     }
+
+
 
     &.fadeIn.animation-show {
         opacity: 1;
@@ -103,6 +122,29 @@
         opacity: 1;
         transition: var(--transition-time);
     }
+
+    &::-webkit-scrollbar {
+        margin-top: 50px;
+        width: 5px;
+        background-color: #eee;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+    }
+}
+
+.modal__content {
+    padding-right: 5px;
+    box-sizing: border-box;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
 }
 
 .disable--scroll {
@@ -115,11 +157,11 @@
 }
 
 @media screen and(max-width: 1199px) {
-    .modal {
-        &::before {
-            display: none;
-        }
-    }
+    // .modal {
+    //     &::before {
+    //         display: none;
+    //     }
+    // }
 }
 
 // }
@@ -129,7 +171,7 @@
         .modal__item {
             width: calc(100% - 15px);
             max-width: calc(100% - 15px);
-            margin: 30px 0;
+            margin: 25px 0;
             padding: 20px;
         }
     }

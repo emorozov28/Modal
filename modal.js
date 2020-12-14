@@ -16,6 +16,8 @@ class Modal {
         this.speed = false;
         this.animation = false;
         this.width = false;
+        this.position = false;
+        this.zIndex = false;
 
         this.init();
     }
@@ -55,6 +57,7 @@ class Modal {
         const animation = this.element.dataset.modalAnimation;
         const speed = this.element.dataset.modalSpeed;
         const width = this.element.dataset.modalWidth;
+        const position = this.element.dataset.modalPosition;
 
         this.options.speed ? this.speed = this.options.speed : this.speed = 500;
         speed ? this.speed = speed : this.speed;
@@ -65,10 +68,23 @@ class Modal {
         this.options.width ? this.width = this.options.width : this.width = '600px';
         width ? this.width = width : this.width;
 
+        this.options.position ? this.position = this.options.position : this.position = 'position-center';
+        position ? this.position = position : this.position;
+
+        parseInt(this.options.zIndex) ? this.zIndex = parseInt(this.options.zIndex) : 999;
+
         this.disableScroll();
 
+        this.modal.style.zIndex = this.zIndex;
         this.modal.style.transition = this.speed / 1000 + 's';
         this.modal.classList.add('show');
+
+
+        if (this.position === 'top') {
+            this.modalItem.classList.add('position-top');
+        } else if (this.position === 'bottom') {
+            this.modalItem.classList.add('position-bottom');
+        }
 
         this.modalItem.style.transition = this.speed / 1000 + 's';
         this.modalItem.classList.add('show');
