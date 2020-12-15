@@ -69,8 +69,8 @@ new Modal({
 ```
 
 ## Speed:
-**default** - 500
 ```
+**default** - 500
 <button data-modal-speed="500"></button>
 
 new Modal({
@@ -79,8 +79,8 @@ new Modal({
 ```
 
 ## Width:
-**default** - 600px
 ```
+**default** - 600px
 <button data-modal-width="1000px"></button>
 
 new Modal({
@@ -89,8 +89,8 @@ new Modal({
 ```
 
 ## Position:
-**default** - center
 ```
+**default** - center
 <button data-modal-position="center"></button>
 
 new Modal({
@@ -99,8 +99,8 @@ new Modal({
 ```
 
 ## z-index:
-**default** - 999
 ```
+**default** - 999
 new Modal({
     Zindex: 1000,
 });
