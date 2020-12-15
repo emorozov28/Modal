@@ -22,8 +22,19 @@
         data-modal-animation="fadeInUp"
         data-modal-width="90%" 
         data-modal-position="top"
-    >Модальное окно 1</button>
-    <button class="btn" data-modal-path="second">Модальное окно 2</button>
+        >Модальное окно 1</button>
+    <button class="btn" 
+        data-modal-path="second"
+        >Модальное окно 2</button>
+
+
+        <!-- data-modal-animation="random" -->
+
+
+    <button class="btn" 
+        data-modal-path="third"
+        data-modal-animation="fadeInLeft"
+     >Модальное окно 3</button>
 
     <h1>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, inventore placeat. Ratione rerum, fugit
@@ -39,7 +50,7 @@
     <div class="modal" id="modal">
 
         <div class="modal__item position-top" data-modal-target="first">
-            <button class="modal__close">Close</button>
+            <button class="modal__close" aria-label="Закрыит попап"></button>
             <h3 class="modal__title">Title 1</h3>
             <div class="modal__content">
                 <p>
@@ -51,7 +62,7 @@
 
         <div class="modal__item" data-modal-target="second">
             <input type="text">
-            <button class="modal__close">Close</button>
+            <button class="modal__close" aria-label="Закрыит попап"></button>
             <h3 class="modal__title">Title 2</h3>
             <div class="modal__content">
                 <p>
@@ -67,25 +78,40 @@
             <p>111</p>
         </div>
 
+        <div class="modal__item" data-modal-target="third">
+            <input type="text">
+            <button class="modal__close" aria-label="Закрыит попап"></button>
+            <h3 class="modal__title">Title 3</h3>
+            <div class="modal__content">
+                <p>
+                    distinctio labore id laudantium alias placeat harum earum pariatur eum. Placeat voluptatibus rerum
+                    autem esse maxime, obcaecati quam quidem, magnam voluptate ullam non delectus ratione sed iure,
+                    dolore sapiente totam quaerat tempore beatae ducimus nemo ipsa? Et, autem eligendi voluptatum
+                   
+                </p>
+            </div>
+        </div>
+
     </div>
 
 
     <script src="modal.js"></script>
     <script>
         new Modal({
-            // isOpen: () => {
-            //     console.log('Open');
-            // },
-            // isClose: () => {
-            //     console.log('Close');
-            // },
+            isOpen: (modal) => {
+                console.log(modal);
+            },
+            isClose: () => {
+                console.log('Close');
+            },
             speed: 500,
-            // animation: 'fadeInRight',
+            animation: 'random',
             width: '1000px',
             position: 'bottom',
             zIndex: 1000
         });
     </script>
+
 </body>
 
 </html>

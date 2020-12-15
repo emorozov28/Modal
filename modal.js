@@ -1,18 +1,16 @@
 class Modal {
-
     constructor(options) {
         let defaultOptions = {
             isOpen: () => {},
             isClose: () => {}
         }
-
         this.options = Object.assign(defaultOptions, options);
         this.isOpen = false;
         this.isClose = false;
         this.modal = document.querySelector('#modal');
         this.fixedBlock = document.querySelectorAll('.fixed-block');
         this.modalItem = false;
-        this.element = false;
+        this.elementClick = false;
         this.speed = false;
         this.animation = false;
         this.width = false;
@@ -27,7 +25,7 @@ class Modal {
             document.addEventListener('click', function (event) {
                 const clickedElement = event.target.closest('[data-modal-path]');
                 const closeModal = event.target.closest('.modal__close');
-                this.element = clickedElement;
+                this.elementClick = clickedElement;
 
                 if (clickedElement) {
                     const path = clickedElement.dataset.modalPath;
@@ -42,11 +40,13 @@ class Modal {
                 }
 
             }.bind(this));
+
             document.addEventListener('keydown', function (event) {
                 if (event.keyCode === 27 && this.isOpen) {
                     this.close();
                 }
             }.bind(this));
+
             window.addEventListener('resize', function () {
                 this.widthElement();
             }.bind(this));
@@ -54,18 +54,34 @@ class Modal {
     }
 
     open() {
-        const animation = this.element.dataset.modalAnimation;
-        const speed = this.element.dataset.modalSpeed;
-        const width = this.element.dataset.modalWidth;
-        const position = this.element.dataset.modalPosition;
+        const animation = this.elementClick.dataset.modalAnimation;
+        const speed = this.elementClick.dataset.modalSpeed;
+        const width = this.elementClick.dataset.modalWidth;
+        const position = this.elementClick.dataset.modalPosition;
 
-        this.options.speed ? this.speed = this.options.speed : this.speed = 500;
-        speed ? this.speed = speed : this.speed;
+        let animationName = ['fadeIn', 'fadeInUp', 'fadeInDown', 'fadeInLeft', 'fadeInRight'];
+        let animationShow = animationName[Math.floor(Math.random() * animationName.length)];
 
-        this.options.animation ? this.animation = this.options.animation : this.animation = 'fadeIn';
-        animation ? this.animation = animation : this.animation;
+        this.speed = Math.abs(parseInt(this.options.speed)) ? Math.abs(parseInt(this.options.speed)) : 500;
+        Math.abs(parseInt(speed)) ? this.speed = Math.abs(parseInt(speed)) : this.speed;
 
-        this.options.width ? this.width = this.options.width : this.width = '600px';
+        if (this.options.animation === 'random') {
+            if (animation) {
+                this.animation = animation;
+            } else {
+                this.animation = animationShow;
+            }
+        } else if (!this.options.animation) {
+            if (animation === 'random') {
+                this.animation = animationShow;
+            } else {
+                this.animation = animation;
+            }
+        } else {
+            this.animation = 'fadeIn';
+        }
+
+        this.width = this.options.width ? this.options.width : '600px';
         width ? this.width = width : this.width;
 
         this.options.position ? this.position = this.options.position : this.position = 'position-center';
@@ -97,8 +113,6 @@ class Modal {
             this.isOpen = true;
             this.modalItem.classList.add('animation-show');
         }, this.speed / 1000);
-
-        this.modal.style.overflowY = 'auto';
     }
 
     close() {
@@ -111,9 +125,11 @@ class Modal {
             this.enableScroll();
             this.modalItem.classList.remove(this.animation);
             this.modalItem.classList.remove('show');
-            this.modal.classList.remove('show');
-            this.modal.style.overflowY = 'hidden';
         }, this.speed);
+
+        setTimeout(() => {
+            this.modal.classList.remove('show');
+        }, this.speed / 100);
     }
 
     widthElement() {
