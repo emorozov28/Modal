@@ -1,7 +1,6 @@
 # Modal window
 
 ## Usage
------
 
 Download modal
 ```
@@ -42,14 +41,72 @@ Download modal
 ```
 
 ## Or:
------
-
 ```
 <button
     data-modal-path="first" 
-    data-modal-speed="700" 
     data-modal-animation="fadeInUp"
+    data-modal-speed="700" 
     data-modal-width="90%" 
     data-modal-position="top"
 >Modal window 1</button>
+```
+
+## Animation:
+```
+default - fadeIn
+
+<button data-modal-animation="fadeIn"></button>
+
+new Modal({
+    animation: 'fadeInUp',
+});
+
+1. fadeIn
+2. fadeInUp
+3. fadeInDown
+4. fadeInLeft
+5. fadeInRight
+6. random
+```
+
+## Speed:
+```
+default - 500
+
+<button data-modal-speed="500"></button>
+
+new Modal({
+    animation: 1000,
+});
+```
+
+## Width:
+```
+default - 600px
+
+<button data-modal-width="1000px"></button>
+
+new Modal({
+    width: '75%',
+});
+```
+
+## Position:
+```
+default - center
+
+<button data-modal-position="center"></button>
+
+new Modal({
+    position: 'top%',
+});
+```
+
+## z-index:
+```
+default - 999
+
+new Modal({
+    Zindex: 1000,
+});
 ```
