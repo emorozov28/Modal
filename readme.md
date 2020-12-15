@@ -1,15 +1,17 @@
-#Modal window
+# Modal window
 
-##Usage
-<
+## Usage
+-----
+
 Download modal
+```
 <link rel="stylesheet" href="modal.css">
 <script src="modal.js"></script>
-> 
+```
 
-##Examples
+## Examples
 
-<
+```
 <button data-modal-path="first"></button>
 
 <div class="modal" id="modal">
@@ -37,11 +39,12 @@ Download modal
         zIndex: 1000
     });
 </script>
->
+```
 
-##Or:
+## Or:
+-----
 
-<
+```
 <button
     data-modal-path="first" 
     data-modal-speed="700" 
@@ -49,4 +52,4 @@ Download modal
     data-modal-width="90%" 
     data-modal-position="top"
 >Modal window 1</button>
->
+```
