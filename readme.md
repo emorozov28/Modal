@@ -11,7 +11,7 @@ Download modal
 ## Examples
 
 ```
-If the page has elements that have absolute positioning or fixed, you need to add the class **fixed-block**
+If the page has elements that have absolute positioning or fixed, you need to add the class "fixed-block"
 
 <div class="fixed-nav" id="fixed-nav">
     <nav class="nav fixed__nav fixed-block">
