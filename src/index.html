@@ -7,7 +7,7 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="css/modal.css">
     <style>
         body {
             height: 5000px;
@@ -20,7 +20,7 @@
         data-modal-path="first" 
         data-modal-speed="700" 
         data-modal-animation="fadeInUp"
-        data-modal-width="90%" 
+        data-modal-width="500px" 
         data-modal-position="top"
         >Модальное окно 1</button>
     <button class="btn" 
@@ -33,7 +33,8 @@
 
     <button class="btn" 
         data-modal-path="third"
-        data-modal-animation="fadeInLeft"
+        data-modal-animation="random"
+        data-modal-width="99%"
      >Модальное окно 3</button>
 
     <h1>
@@ -95,20 +96,13 @@
     </div>
 
 
-    <script src="modal.js"></script>
+    <script src="js/modal.js"></script>
     <script>
         new Modal({
-            isOpen: (modal) => {
-                console.log(modal);
-            },
-            isClose: () => {
-                console.log('Close');
-            },
-            speed: 500,
-            animation: 'random',
-            width: '1000px',
-            position: 'bottom',
-            zIndex: 1000
+            width: '100%',
+            disableScroll: true,
+            // strongDisablescroll: true
+
         });
     </script>
 

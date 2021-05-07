@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .container {
+            width: 960px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <button class="btn" data-modal-path="first" data-modal-speed="700" data-modal-animation="fadeInUp"
+            data-modal-width="500px" data-modal-position="top">Модальное окно 1</button>
+        <button class="btn" data-modal-path="second">Модальное окно 2</button>
+
+
+        <button class="btn" data-modal-path="third" data-modal-animation="random" data-modal-width="99%">Модальное окно
+            3</button>
+
+
+        <pre>
+            &#60;script&#62; src="js/modal.js"/script&#62;
+
+            &#60;script&#62;
+                new Modal({
+                    animation: 'randon'
+                });
+            &#60;/script&#62;
+        </pre>
+    </div>
+
+
+
+    <div class="modal" id="modal">
+
+        <div class="modal__item position-top" data-modal-target="first">
+            <button class="modal__close" aria-label="Закрыит попап"></button>
+            <h3 class="modal__title">Title 1</h3>
+            <div class="modal__content">
+                <p>
+                    Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Своего лучше
+                    власти пояс имени запятой! На берегу раз пустился взгляд!
+                </p>
+            </div>
+        </div>
+
+        <div class="modal__item" data-modal-target="second">
+            <input type="text">
+            <button class="modal__close" aria-label="Закрыит попап"></button>
+            <h3 class="modal__title">Title 2</h3>
+            <div class="modal__content">
+                <p>
+                    Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Своего лучше
+                    власти пояс имени запятой! На берегу раз пустился взгляд!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sed, quae, doloremque beatae quo
+                    distinctio labore id laudantium alias placeat harum earum pariatur eum. Placeat voluptatibus rerum
+                    autem esse maxime, obcaecati quam quidem, magnam voluptate ullam non delectus ratione sed iure,
+                    dolore sapiente totam quaerat tempore beatae ducimus nemo ipsa? Et, autem eligendi voluptatum
+
+                </p>
+            </div>
+            <p>111</p>
+        </div>
+
+        <div class="modal__item" data-modal-target="third">
+            <input type="text">
+            <button class="modal__close" aria-label="Закрыит попап"></button>
+            <h3 class="modal__title">Title 3</h3>
+            <div class="modal__content">
+                <p>
+                    distinctio labore id laudantium alias placeat harum earum pariatur eum. Placeat voluptatibus rerum
+                    autem esse maxime, obcaecati quam quidem, magnam voluptate ullam non delectus ratione sed iure,
+                    dolore sapiente totam quaerat tempore beatae ducimus nemo ipsa? Et, autem eligendi voluptatum
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/modal.js"></script>
+    <script>
+        new Modal({
+            animation: 'randon'
+        });
+    </script>
+
+</body>
+
+</html>

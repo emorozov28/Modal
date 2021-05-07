@@ -1,6 +1,9 @@
-$transition-time: .3s;
+:root {
+    --transition-time: 3s
+}
 
 .modal {
+
     position: fixed;
     display: flex;
     justify-content: center;
@@ -17,7 +20,7 @@ $transition-time: .3s;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transition: $transition-time;
+    transition: var(--transition-time);
 
     // &::before {
     //     content: "";
@@ -29,7 +32,7 @@ $transition-time: .3s;
     &.show {
         opacity: 1;
         visibility: visible;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 }
 
@@ -40,11 +43,15 @@ $transition-time: .3s;
     margin: 50px;
     background-color: #fff;
     cursor: default;
-    padding: 40px;
+    padding: 20px 25px;
     max-height: 90%;
-    transition: $transition-time;
+    transition: var(--transition-time);
     box-sizing: border-box;
     overflow-y: auto;
+
+    &.m-0 {
+        margin: 0 !important;
+    }
 
     &.position-top {
         margin-bottom: auto !important;
@@ -65,62 +72,62 @@ $transition-time: .3s;
 
     &.fadeIn {
         opacity: 0;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
 
 
     &.fadeIn.animation-show {
         opacity: 1;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInUp {
         transform: translateY(-2000px) scale(0.5);
         opacity: 0.7;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInUp.animation-show {
         transform: scale(1);
         opacity: 1;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInDown {
         transform: translateY(2000px) scale(0.5);
         opacity: 0.7;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInDown.animation-show {
         transform: scale(1);
         opacity: 1;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInLeft {
         transform: translateX(-2000px) scale(0.5);
         opacity: 0.7;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInLeft.animation-show {
         transform: scale(1);
         opacity: 1;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInRight {
         transform: translateX(2000px) scale(0.5);
         opacity: 0.7;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &.fadeInRight.animation-show {
         transform: scale(1);
         opacity: 1;
-        transition: $transition-time;
+        transition: var(--transition-time);
     }
 
     &::-webkit-scrollbar {
@@ -146,7 +153,7 @@ $transition-time: .3s;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    transition: $transition-time;
+    transition: var(--transition-time);
 
     &:hover {
         opacity: 1;
@@ -185,6 +192,10 @@ $transition-time: .3s;
 }
 
 .disable--scroll {
+    overflow: hidden;
+}
+
+.disable--scroll-strong {
     position: fixed;
     overflow: hidden;
     height: 100vh;
@@ -193,15 +204,6 @@ $transition-time: .3s;
     left: 0;
 }
 
-@media screen and(max-width: 1199px) {
-    // .modal {
-    //     &::before {
-    //         display: none;
-    //     }
-    // }
-}
-
-// }
 @media screen and(max-width: 767px) {
     .modal {
 

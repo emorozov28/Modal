@@ -1,8 +1,8 @@
 class Modal {
     constructor(options) {
         let defaultOptions = {
-            isOpen: () => {},
-            isClose: () => {}
+            isOpen: () => { },
+            isClose: () => { }
         }
         this.options = Object.assign(defaultOptions, options);
         this.isOpen = false;
@@ -15,42 +15,40 @@ class Modal {
         this.animation = false;
         this.width = false;
         this.position = false;
+        this.disableScroll = false;
         this.zIndex = false;
 
         this.init();
     }
 
     init() {
-        if (this.modal) {
-            document.addEventListener('click', function (event) {
-                const clickedElement = event.target.closest('[data-modal-path]');
-                const closeModal = event.target.closest('.modal__close');
-                this.elementClick = clickedElement;
+        if (!this.modal) throw new Error(`Selector not found`)
 
-                if (clickedElement) {
-                    const path = clickedElement.dataset.modalPath;
-                    this.modalItem = document.querySelector(`[data-modal-target="${path}"]`);
-                    this.open();
-                }
-                if (closeModal && this.isOpen) {
-                    this.close();
-                }
-                if (!event.target.closest('.modal__item') && this.isOpen) {
-                    this.close();
-                }
+        document.addEventListener('click', function (event) {
+            const clickedElement = event.target.closest('[data-modal-path]');
+            const closeModal = event.target.closest('.modal__close');
+            this.elementClick = clickedElement;
 
-            }.bind(this));
+            if (clickedElement) {
+                const path = clickedElement.dataset.modalPath;
+                this.modalItem = document.querySelector(`[data-modal-target="${path}"]`);
+                this.open();
+            }
+            if (closeModal && this.isOpen) {
+                this.close();
+            }
+            if (!event.target.closest('.modal__item') && this.isOpen) {
+                this.close();
+            }
 
-            document.addEventListener('keydown', function (event) {
-                if (event.keyCode === 27 && this.isOpen) {
-                    this.close();
-                }
-            }.bind(this));
+        }.bind(this));
 
-            window.addEventListener('resize', function () {
-                this.widthElement();
-            }.bind(this));
-        }
+        document.addEventListener('keydown', function (event) {
+            if (event.keyCode === 27 && this.isOpen) {
+                this.close();
+            }
+        }.bind(this));
+
     }
 
     open() {
@@ -89,7 +87,10 @@ class Modal {
 
         parseInt(this.options.zIndex) ? this.zIndex = parseInt(this.options.zIndex) : 999;
 
-        this.disableScroll();
+        console.log(this.disableScroll)
+        if(this.disableScroll) {
+            this.disableScrollElem();
+        }
 
         this.modal.style.zIndex = this.zIndex;
         this.modal.style.transition = this.speed / 1000 + 's';
@@ -133,16 +134,24 @@ class Modal {
     }
 
     widthElement() {
+        const reg = /%$/;
         this.modalItem.style.width = this.width;
+
+        if (this.width.match(reg)) {
+            this.modalItem.style.width = this.width;
+            this.modalItem.classList.add('m-0');
+            return;
+            console.log(this.width)
+        }
 
         if ((parseInt(this.width) + 100) >= document.body.clientWidth) {
             this.modalItem.style.width = 'auto';
-        } else {
-            this.modalItem.style.width = this.width;
+            return;
         }
+        this.modalItem.style.width = this.width;
     }
 
-    disableScroll() {
+    disableScrollElem() {
         const pagePosition = window.scrollY;
         this.lockPadding();
         document.body.classList.add('disable--scroll');
